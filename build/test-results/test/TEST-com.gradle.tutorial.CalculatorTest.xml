@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.gradle.tutorial.CalculatorTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2021-10-19T07:33:05" hostname="elkhvn" time="0.035">
+  <properties/>
+  <testcase name="Simple multiplication should work" classname="com.gradle.tutorial.CalculatorTest" time="0.035"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
