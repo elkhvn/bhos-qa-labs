@@ -1,0 +1,57 @@
+plugins {
+    id 'java'
+    id "org.sonarqube" version "3.3"
+    id 'jacoco'
+}
+
+sourceCompatibility = '11'
+targetCompatibility = '11'
+
+
+sonarqube {
+  properties {
+    property "sonar.projectKey", "elkhvn_bhos-qa-labs"
+    property "sonar.organization", "elkhvn"
+    property "sonar.host.url", "https://sonarcloud.io"
+    property 'sonar.core.codeCoveragePlugin', 'jacoco'
+    property 'sonar.jacoco.reportPaths', "${buildDir}/jacoco/test.exec"
+    property 'sonar.coverage.jacoco.xmlReportPaths', "${buildDir}/reports/jacoco/jacoco.xml"
+  }
+}
+
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+tasks['sonarqube'].dependsOn test
+
+jacocoTestReport {
+    reports {
+        xml.enabled true
+        csv.enabled false
+        xml.destination file("${buildDir}/reports/jacoco/jacoco.xml")
+    }
+}
+
+test {
+    useJUnitPlatform()
+    finalizedBy jacocoTestReport
+    testLogging {
+        outputs.upToDateWhen { false }
+        showStandardStreams = true
+        exceptionFormat = 'full'
+    }
+}
+
+
+
+
