@@ -10,8 +10,8 @@ targetCompatibility = '11'
 
 sonarqube {
   properties {
-    property "sonar.projectKey", "NigarHajiyeva_bhos-qa-labs"
-    property "sonar.organization", "nigarhajiyeva"
+    property "sonar.projectKey", "elkhvn_bhos-qa-labs"
+    property "sonar.organization", "elkhvn"
     property "sonar.host.url", "https://sonarcloud.io"
     property 'sonar.core.codeCoveragePlugin', 'jacoco'
     property 'sonar.jacoco.reportPaths', "${buildDir}/jacoco/test.exec"
