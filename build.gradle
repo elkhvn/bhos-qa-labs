@@ -1,0 +1,34 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id "org.sonarqube" version "3.3"
+}
+
+sonarqube {
+    properties {
+        property "sonar.projectKey", "Yaqubov_bhos-qa-labs2"
+        property "sonar.organization", "yaqubov-1"
+        property "sonar.host.url", "https://sonarcloud.io"
+    }
+}
+
+group = 'com.example'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '11'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation group: 'com.nimbusds', name: 'srp6a', version: '2.0.2'
+    implementation 'junit:junit:4.13.1'
+    implementation 'org.json:json:20180813'
+}
+
+test {
+    useJUnitPlatform()
+}
